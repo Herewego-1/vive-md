@@ -6,18 +6,27 @@
 
 ## 구조
 ```
+├── scripts/                                    # 유틸리티 스크립트
+│   └── fetch_and_translate_ontology_papers.py  # 온톨로지 논문 수집·번역 자동화
+│
 ├── docs/                                       # 문서 모음
-│   ├── research/                               # 논문 & 연구
-│   │   ├── multi-agent-orchestration-papers-guide.md
-│   │   ├── vibe_coding_orchestration_papers_2025_2026_comprehensive_review.md
-│   │   ├── vibe-coding-ontology-research-synthesis.md
-│   │   └── debate-2026-02-18T17-43-36.md
+│   ├── multi-agent-orchestration-papers-guide.md  # 멀티에이전트 논문 실무 가이드
+│   ├── vibe-coding-ontology-research-synthesis.md # 온톨로지 연구 종합 리서치
+│   ├── vibe_coding_orchestration_papers_2025_2026_comprehensive_review.md
+│   ├── ontology-papers/                        # 온톨로지 논문 아카이브 (58편)
+│   │   ├── README.md                           # 수집 결과 요약 및 품질 등급 가이드
+│   │   ├── originals/                          # 원문 (PDF/HTML, 7+34편 확보)
+│   │   ├── translations/                       # 1:1 한국어 번역 (58편 전량)
+│   │   │   ├── 01_a-translation-approach-to-portable-ontology-specifications.md
+│   │   │   ├── … (02 ~ 57)
+│   │   │   └── 58_a-short-review-for-ontology-learning-stride-to-llm-trend.md
+│   │   └── meta/                               # manifest.csv, manifest.json, missing-originals.md
+│   ├── research/                               # 리서치 문서
+│   │   └── knowledge-graph-visualization-tools-comparison.md
 │   ├── guides/                                 # 가이드
 │   │   └── 문서-기반-프로젝트-설정-가이드.md
-│   ├── reports/                                # 보고서
-│   │   └── orchestra-report.md
-│   ├── octo/                                   # 오케스트레이션 도구
 │   └── scrum/                                  # 스크럼 기록
+│       └── 00-project-history-*.md
 │
 ├── vibe-coding/                                # 바이브코딩 가이드
 │   ├── README.md
@@ -34,6 +43,8 @@
 │   │   ├── 02-Skills-고급-패턴.md               # 동적 컨텍스트, 서브에이전트, Hooks
 │   │   └── 03-Skills-실전-예시-모음.md           # PR 리뷰, 배포, 코드 분석 등 실전 예시
 │   ├── tools/                                  # 도구별 가이드
+│   │   ├── README.md                           # 도구 선택 가이드 & 빠른 시작
+│   │   ├── AI-코딩-도구-실전-사용법.md           # Claude Code / Kimi / Codex CLI 비교 및 명령어
 │   │   ├── Claude-Code-바이브코딩-가이드.md
 │   │   └── Kimi-바이브코딩-가이드.md
 │   ├── papers/                                 # 논문 분석
@@ -47,13 +58,14 @@
 │       └── Awesome-Claude-Skills-한국어-가이드.md  # 380개+ Skills 한국어 카탈로그
 │
 └── templates/                                  # 개발 가이드 & 산출물 템플릿
-    ├── spring-boot/Spring-Boot-개발가이드.md   # Spring Boot 3.x (3000줄+)
+    ├── spring-boot/Spring-Boot-개발가이드.md   # Spring Boot 3.x (3200줄+)
     ├── vue/Vue3-개발가이드.md                   # Vue 3 + TypeScript (3000줄+)
     ├── react/React-개발가이드.md                # React 18+ + TypeScript (3000줄+)
-    ├── nextjs/NextJS-개발가이드.md              # Next.js 14+ App Router (2600줄+)
+    ├── nextjs/NextJS-개발가이드.md              # Next.js 14+ App Router (2700줄+)
     ├── design-system/디자인시스템-가이드.md      # UI/UX, 접근성, 다크모드 (2500줄+)
     ├── security/보안-가이드.md                   # OWASP, 인증/인가, API 보안 (2900줄+)
     ├── waterfall/                                # 워터폴 방법론 산출물 템플릿 (초기 개발)
+    │   ├── CLAUDE.md                            # 워터폴 종합 가이드 (Claude Code용)
     │   ├── 00-기획/
     │   │   ├── 서비스기획서.md
     │   │   └── 비즈니스정책서.md
@@ -83,7 +95,7 @@
     │       └── 프로젝트관리-산출물.md
     │
     └── kanban/                                  # 칸반 방법론 산출물 템플릿 (유지보수/운영)
-        ├── CLAUDE.md                            # 칸반 종합 가이드
+        ├── CLAUDE.md                            # 칸반 종합 가이드 (Claude Code용)
         ├── 01-칸반-보드-설계서.md                 # 보드 구조, WIP, Swimlane, Class of Service
         ├── 02-서비스-수준-협약-SLA.md              # SLA/SLE, 장애등급별 대응시간
         ├── 03-변경요청-관리-프로세스.md             # CR 프로세스, 승인체계, 칸반 연동
@@ -104,12 +116,14 @@
 
 ### 워터폴 산출물 템플릿 (14개+) — 초기 개발
 워터폴 방법론 각 단계별 산출물의 표준 템플릿. Claude Code에게 "SRS 작성해줘" 요청 시 해당 템플릿 기반으로 산출물 생성.
+- `templates/waterfall/CLAUDE.md`: Claude Code용 종합 가이드 (방법론 개요, Gate 승인 기준, 산출물 생성 규칙)
 - [placeholder] 표시로 프로젝트별 내용을 채울 위치 명시
 - Mermaid 다이어그램 포함 (flowchart, sequenceDiagram, erDiagram, classDiagram, gantt)
 - **적용 단계**: Phase 0(기획) ~ Phase 6(배포)
 
 ### 칸반 산출물 템플릿 (9개+) — 유지보수/운영
 워터폴 Phase 6(배포) 완료 후 칸반으로 전환하여 유지보수/운영 단계의 산출물을 관리. Claude Code에게 "칸반 보드 설계해줘", "SLA 작성해줘" 요청 시 해당 템플릿 기반으로 산출물 생성.
+- `templates/kanban/CLAUDE.md`: Claude Code용 종합 가이드 (칸반 6대 실천법, WIP, SLA/SLE, 흐름 메트릭)
 - 플랫 구조 (숫자 접두사): 칸반은 순차 단계가 없으므로 폴더 중첩 불필요
 - 각 문서는 독립적인 Living Document로 지속 갱신
 - 워터폴 산출물(유지보수계획서, 운영가이드)의 내용을 계승하되 칸반 고유 개념(SLE, Post-mortem, 흐름 메트릭) 추가
@@ -121,17 +135,44 @@
 - WCAG 2.1 AA 접근성 체크리스트
 - 위험 관리, WBS, 변경 관리
 
-### 연구 & 논문 문서 (docs/research/)
+### 온톨로지 논문 아카이브 (docs/ontology-papers/) — 신규
+고전 온톨로지 이론(1993~)부터 LLM 기반 온톨로지 학습/정렬(2023~2025)까지 58편의 논문을 수집·번역한 아카이브.
+- **원문**: PDF 7편 + HTML 34편 확보 / 미확보 17편 (라이선스/접근 제한)
+- **번역**: 58편 전량 1:1 한국어 번역 (`docs/ontology-papers/translations/`)
+- **품질 등급**: A(PDF+번역 완전) / B(부분) / C(탐색용)
+- **빠른 읽기 트랙**:
+  - 입문 트랙 (원칙/방법론): 논문 1, 2, 3, 5, 9
+  - 실무 구축 트랙: 논문 7, 21, 26, 27, 32, 33
+  - 도메인 확장 트랙 (KG/바이오/IoT): 논문 35, 36, 40, 41, 42
+  - LLM 전환 트랙 (최신): 논문 44, 45, 48, 51, 52, 54
+- **메타**: `manifest.csv`, `manifest.json`으로 수집 상태·번역 상태 관리
+- **재생성**: `scripts/fetch_and_translate_ontology_papers.py` 실행
+
+### 연구 & 논문 문서 (docs/)
 멀티에이전트 오케스트레이션 및 바이브코딩 관련 논문 분석.
-- 2025-2026년 주요 논문 종합 리뷰
-- 바이브코딩 온톨로지 연구 종합
-- ChatDev, MetaGPT, HyperAgent 등 심층 분석
+- `docs/vibe_coding_orchestration_papers_2025_2026_comprehensive_review.md`: 2025-2026년 16~22편 종합 리뷰
+- `docs/vibe-coding-ontology-research-synthesis.md`: 온톨로지 핵심/고전/최신(LLM) 논문 요약
+- `docs/multi-agent-orchestration-papers-guide.md`: 논문 기반 실무 적용 가이드
+- `docs/research/knowledge-graph-visualization-tools-comparison.md`: KG 시각화 도구 비교
+- 분석 대상: ChatDev, MetaGPT, HyperAgent, MapCoder, AgentCoder, SWE-agent 등
 
 ### 바이브코딩 라이브러리 (vibe-coding/)
 바이브코딩 & 멀티에이전트 오케스트레이션 종합 가이드.
-- 도구별 바이브코딩 가이드 (Claude Code, Kimi)
+- 도구별 바이브코딩 가이드 (Claude Code, Kimi, Codex CLI)
 - 논문 분석 및 실전 프롬프트 모음
 - 추가 자료 및 리소스
+
+### AI 코딩 도구 가이드 (vibe-coding/tools/)
+3가지 AI 코딩 CLI 도구의 실전 사용법.
+
+| 도구 | 가이드 문서 | 특징 |
+|------|------------|------|
+| Claude Code | `Claude-Code-바이브코딩-가이드.md` | 최고 추론 능력, Opus/Sonnet/Haiku 선택 |
+| Kimi CLI | `Kimi-바이브코딩-가이드.md` | 저렴한 비용, 뛰어난 비전 기능 |
+| Codex CLI | `AI-코딩-도구-실전-사용법.md` | Apache 2.0 오픈소스, CI/CD exec 모드 |
+
+- `vibe-coding/tools/README.md`: 도구 선택 가이드 & 빠른 시작
+- `vibe-coding/tools/AI-코딩-도구-실전-사용법.md`: 3가지 도구 모델별 상세 명령어 및 설정 비교
 
 ### MCP 지식 센터 (vibe-coding/mcp/)
 MCP(Model Context Protocol) 종합 가이드. 아키텍처, Transport, 서버 설정/개발/보안부터 실전 패턴과 서버 카탈로그까지.
@@ -154,7 +195,39 @@ Claude Code Skills 종합 가이드. SKILL.md 구조, Frontmatter 레퍼런스, 
 - 코드 예시는 실무에서 바로 복사해서 쓸 수 있는 완전한 형태
 - 각 스택 고유의 패턴에 집중 (일반적인 소프트웨어 상식은 생략)
 
+## 산출물 생성 규칙 (Claude Code용)
+
+### 워터폴 산출물 생성 시
+`templates/waterfall/CLAUDE.md`를 먼저 읽어 방법론 개요, Gate 승인 기준, 산출물 파일명 규칙을 확인한 후 해당 템플릿을 기반으로 생성.
+
+```
+요청 예시 → 참조 템플릿
+"SRS 작성해줘" → templates/waterfall/01-요구사항분석/요구사항명세서-SRS.md
+"API 설계서 만들어줘" → templates/waterfall/02-시스템설계/API설계서.md
+"테스트 계획서 써줘" → templates/waterfall/05-테스트/테스트계획서.md
+```
+
+### 칸반 산출물 생성 시
+`templates/kanban/CLAUDE.md`를 먼저 읽어 칸반 개념, WIP 정책, SLA/SLE 정의 방법을 확인한 후 해당 템플릿을 기반으로 생성.
+
+```
+요청 예시 → 참조 템플릿
+"칸반 보드 설계해줘" → templates/kanban/01-칸반-보드-설계서.md
+"SLA 작성해줘" → templates/kanban/02-서비스-수준-협약-SLA.md
+"장애 대응 절차서 만들어줘" → templates/kanban/04-장애-대응-절차서.md
+```
+
 ## 새 템플릿 추가 시
 1. `templates/{category}/` 디렉토리 생성
 2. 의미 있는 한국어 파일명으로 `.md` 작성
 3. `README.md`의 지원 템플릿 테이블에 추가
+4. `DOCUMENTATION_INDEX.md` 업데이트
+
+## 온톨로지 논문 아카이브 재생성 시
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+pip install requests pypdf beautifulsoup4 lxml
+python scripts/fetch_and_translate_ontology_papers.py
+```
+결과물은 `docs/ontology-papers/originals/`, `docs/ontology-papers/translations/`, `docs/ontology-papers/meta/`에 저장됨.
