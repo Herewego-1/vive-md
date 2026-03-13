@@ -14,17 +14,19 @@
 - 프론트엔드: React 18+, Vue 3, Next.js 14+, TypeScript
 - 백엔드: Spring Boot, Node.js, Python(FastAPI)
 - 인프라: Docker, GitHub Actions, MCP(Model Context Protocol)
+- 자동화: Make.com, n8n, Zapier (워크플로우 자동화)
 - 방법론: 초기개발=워터폴, 운영=칸반
 
 현재 AI 도구 환경:
 - 개발: Claude Code (주력), Codex CLI
-- 리서치: ChatGPT Plus, Perplexity AI
+- 아이디어 발산·초안·이미지: ChatGPT Plus (주력)
+- 심층 분석·리서치: Perplexity AI, Claude
 - 자동화: MCP 서버 + 멀티에이전트 오케스트레이션
 
 현재 연구 주제:
-- AI 자동화가 2026년 투자 시장에 미치는 영향
+- 2026 투자 테마: AI/반도체 ETF(SOXX·SOXL), 전력 인프라, 에이전틱 AI 워크플로우
 - 멀티에이전트 오케스트레이션 패턴 (ChatDev, MetaGPT, HyperAgent)
-- 바이브 코딩(LLM 기반 개발) 생산성 최적화
+- 부의 파이프라인 자동화: 콘텐츠 자동화, 디지털 제품 수익화, 서비스 자동화
 
 개발 원칙 (Iron Laws):
 1. 설계 우선: 코드 작성 전 설계 방향 제안 → 승인 후 구현
@@ -103,4 +105,4 @@
 4. 위 **필드 2** 내용을 "How would you like ChatGPT to respond?"에 붙여넣기
 5. **Save** 클릭
 
-> 글자 수: 필드 1 약 880자 / 필드 2 약 1,260자 (한도 1,500자 이내)
+> 글자 수: 필드 1 약 977자 / 필드 2 약 1,161자 (한도 1,500자 이내)
