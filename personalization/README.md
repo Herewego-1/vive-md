@@ -12,6 +12,7 @@ Claude Code, Claude.ai, Perplexity에 적용할 수 있는 개인화 설정 파�
 | `global-claude.md` | Claude Code (`~/.claude/CLAUDE.md`) | Claude Code 모든 세션에 자동 적용 |
 | `claude-ai-instructions.md` | Claude.ai 웹사이트 | 커스텀 인스트럭션 붙여넣기용 |
 | `perplexity-ai-profile.md` | Perplexity.ai | AI 프로필 설정 붙여넣기용 |
+| `codex-agents.md` | **Codex CLI** (`~/.codex/AGENTS.md`) | Codex 글로벌 설정 (7개 레포 교차분석) |
 
 ---
 
@@ -37,6 +38,16 @@ cp /home/user/vive-md/personalization/global-claude.md ~/.claude/CLAUDE.md
 2. **Custom Instructions** 탭
 3. `claude-ai-instructions.md` 파일 내 "붙여넣기용 텍스트" 복사 후 붙여넣기
 4. Save
+
+### 4. Codex CLI
+
+```bash
+mkdir -p ~/.codex
+cp /home/user/vive-md/personalization/codex-agents.md ~/.codex/AGENTS.md
+```
+
+설치 후 모든 Codex 세션에서 자동으로 한국어 응답, superpowers Iron Laws,
+기술 스택 컨텍스트, MCP 가이드가 적용됩니다.
 
 ### 3. Perplexity.ai
 
