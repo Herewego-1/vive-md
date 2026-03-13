@@ -13,6 +13,7 @@ Claude Code, Claude.ai, Perplexity에 적용할 수 있는 개인화 설정 파�
 | `claude-ai-instructions.md` | Claude.ai 웹사이트 | 커스텀 인스트럭션 붙여넣기용 |
 | `perplexity-ai-profile.md` | Perplexity.ai | AI 프로필 설정 붙여넣기용 |
 | `codex-agents.md` | **Codex CLI** (`~/.codex/AGENTS.md`) | Codex 글로벌 설정 (7개 레포 교차분석) |
+| `chatgpt-plus-instructions.md` | **ChatGPT Plus** (Custom Instructions) | 두 개 필드용 압축 버전 |
 
 ---
 
@@ -38,6 +39,13 @@ cp /home/user/vive-md/personalization/global-claude.md ~/.claude/CLAUDE.md
 2. **Custom Instructions** 탭
 3. `claude-ai-instructions.md` 파일 내 "붙여넣기용 텍스트" 복사 후 붙여넣기
 4. Save
+
+### 5. ChatGPT Plus
+
+1. ChatGPT → 우측 상단 프로필 → **Settings → Personalization → Custom Instructions**
+2. `chatgpt-plus-instructions.md` 파일의 **필드 1** 내용 → "What would you like ChatGPT to know about you?"
+3. **필드 2** 내용 → "How would you like ChatGPT to respond?"
+4. **Save**
 
 ### 4. Codex CLI
 
